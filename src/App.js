@@ -1,12 +1,18 @@
 import React from "react";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <header>
-        
+        <p>
+          Selecione uma empresa para exibir as informações dos funcionários
+        </p>
       </header>
-    </div>
+      <main>
+        <Router />
+      </main>
+    </BrowserRouter>
   );
 }
 

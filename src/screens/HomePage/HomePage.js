@@ -13,8 +13,8 @@ const HomePage = () => {
 
   const history = useHistory();
 
-  // const companiesData = useRequestData({}, "/company")
-  // const companyNames = companiesData.companies;
+  // const companyData = useRequestData({}, "/company")
+  // const companyNames = companyData.companies;
 
   // const renderCompanyNamesButtonList = () => (
   //   companyNames.map(item => (

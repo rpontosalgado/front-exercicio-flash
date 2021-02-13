@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 
-import 'antd/dist/antd.css';
 import { Table, Typography } from "antd";
 
 import { EmployeeListPageContainer, EmployeeListTableWrapper } from "./styled";
@@ -17,11 +16,19 @@ const EmployeeListPage = () => {
   // const employeeData = useRequestData({}, `/employee/${company}`);
   // const employeeList = employeeData.employees;
 
+  const employees = employeeList.map(item => {
+    item.key = item.identification;
+
+    return item;
+  })
+
+  console.log(employees);
+
   return (
     <EmployeeListPageContainer>
       <Typography.Title level={3}>{ company }</Typography.Title>
       <EmployeeListTableWrapper>
-        <Table columns={ columns } dataSource={ employeeList } />
+        <Table columns={ columns } dataSource={ employees } />
       </EmployeeListTableWrapper>
     </EmployeeListPageContainer>
   );

@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import 'antd/dist/antd.css';
 import { Button, Typography } from "antd";
 
 import useRequestData from "../../hooks/useRequestData";

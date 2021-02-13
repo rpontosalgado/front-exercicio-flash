@@ -1,28 +1,32 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 
-import { Table, Typography } from "antd";
+import { Button, Table, Typography } from "antd";
 
-import { EmployeeListPageContainer, EmployeeListTableWrapper } from "./styled";
+import {
+  EmployeeListPageContainer,
+  EmployeeListTableWrapper
+} from "./styled";
 import useRequestData from "../../hooks/useRequestData";
 
-import { employeeList } from "../../constants/dataSource";
 import { columns } from "../../constants/tableConfig";
+import { goBack } from "../../routes/Coordinator";
 
 const EmployeeListPage = () => {
 
+  const history = useHistory();
+
   const { company } = useParams();
 
-  // const employeeData = useRequestData({}, `/employee/${company}`);
-  // const employeeList = employeeData.employees;
+  const employeeData = useRequestData({}, `/employee/${company}`);
+  const employeeList = employeeData.employees || [];
 
-  const employees = employeeList.map(item => {
-    item.key = item.identification;
+  const employees = employeeList.length && employeeList.map(item => {
+    
+    item.key = item._id;
 
     return item;
-  })
-
-  console.log(employees);
+  });
 
   return (
     <EmployeeListPageContainer>
@@ -30,8 +34,15 @@ const EmployeeListPage = () => {
       <EmployeeListTableWrapper>
         <Table columns={ columns } dataSource={ employees } />
       </EmployeeListTableWrapper>
+      <Button
+        type="primary"
+        size="large"
+        onClick={ () => goBack(history) }
+      >
+        Voltar
+      </Button>
     </EmployeeListPageContainer>
   );
 };
 
-export default EmployeeListPage
+export default EmployeeListPage;

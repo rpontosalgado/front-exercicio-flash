@@ -1,8 +1,8 @@
 export const columns = [
   {
-    title: "Company",
-    dataIndex: "company",
-    key: "company"
+    title: "ID",
+    dataIndex: "_id",
+    key: "_id"
   },
   {
     title: "Name",

@@ -12,20 +12,21 @@ const HomePage = () => {
 
   const history = useHistory();
 
-  // const companyData = useRequestData({}, "/company")
-  // const companyNames = companyData.companies;
+  const companyData = useRequestData({}, "/company")
+  const companyNames = companyData.companies;
 
-  // const renderCompanyNamesButtonList = () => (
-  //   companyNames.map(item => (
-  //     <Button
-  //       type="default"
-  //       size="large"
-  //       onClick={() => goToEmployeeList(history, item)}
-  //     >
-  //       { item }
-  //     </Button>
-  //   ))
-  // );
+  const renderCompanyNamesButtonList = () => (
+    companyNames.map(item => (
+      <Button
+        key={ item }
+        type="default"
+        size="large"
+        onClick={ () => goToEmployeeList(history, item) }
+      >
+        { item }
+      </Button>
+    ))
+  );
 
   return (
     <HomeContainer>
@@ -33,20 +34,7 @@ const HomePage = () => {
         Selecione uma empresa para exibir as informações dos funcionários
       </Typography.Title>
       <CompanyNamesListContainer>
-        <Button
-          type="default"
-          size="large"
-          onClick={() => goToEmployeeList(history, "Empresa A")}
-        >
-          Empresa A
-        </Button>
-        <Button
-          type="default"
-          size="large"
-          onClick={() => goToEmployeeList(history, "Empresa B")}
-        >
-          Empresa B
-        </Button>
+        { companyNames && renderCompanyNamesButtonList() }
       </CompanyNamesListContainer>
     </HomeContainer>
   );

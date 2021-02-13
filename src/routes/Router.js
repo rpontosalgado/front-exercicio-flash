@@ -7,6 +7,9 @@ const Router = () => {
       <Route exact path={"/"}>
         <HomePage />
       </Route>
+      <Route exact path={"/:company"}>
+        <EmployeeListPage />
+      </Route>
     </Switch>
   );
 };

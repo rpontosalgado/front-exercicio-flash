@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HomeContainer = styled.main`
-  margin-top: 2rem;
+  padding-top: 2rem;
 `
 
 export const CompanyNamesListContainer = styled.section`

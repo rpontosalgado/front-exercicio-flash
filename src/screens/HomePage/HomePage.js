@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-import 'antd/dist/antd.css';
 import { Button, Typography } from "antd";
 
 import useRequestData from "../../hooks/useRequestData";
@@ -13,8 +12,8 @@ const HomePage = () => {
 
   const history = useHistory();
 
-  // const companiesData = useRequestData({}, "/company")
-  // const companyNames = companiesData.companies;
+  // const companyData = useRequestData({}, "/company")
+  // const companyNames = companyData.companies;
 
   // const renderCompanyNamesButtonList = () => (
   //   companyNames.map(item => (
